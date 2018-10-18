@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>CA Map JSON Data</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:10; padding:10; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+
+<style>
+#map {
+    position: fixed;
+    width:60%;
+}
+#features {
+    width: 40%;
+    margin-left: 60%;
+    font-family: sans-serif;
+    overflow-y: scroll;
+    background-color: #ffffff;
+
+}
+section {
+    padding:  25px 50px;
+    line-height: 25px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.25;
+    font-size: 13px;
+}
+section.active {
+    opacity: 0.7;
+    padding: 25px 50px;
+    color: #000000;
+    text-shadow: black;
+    background-color: #cccccc;
+
+}
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 1200px;
+  },
+  <style>
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+</style>
+</style>
+
+
+
+
+
+<div id='map'></div>
+<div id='features'>
+  <section id='splash-page' class='active'>
+      <h3>Title goes here</h3>
+      <p>This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction. This is an introduction.</p>
+  </section>
+    <section id='half' >
+        <h3>Half Moon Bay— San Mateo County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure AA</li></ul>
+          <p><strong> Current situation: </strong> The city allows for limited cultivation.</p>
+          <p><strong>What could change: </strong> If passed Measure AA will expand the limited cultivation allowed by the city to include nurseries as well as some limited transportation.
+
+            <small id = "citation">
+            <a href = 'https://www.smcacre.org/sites/main/files/file-attachments/hmb_resono2018-84.pdf ' target = "_blank"> Read Half Moon Bay full text.</a></p>
+    </section>
+    <section id='clara'>
+        <h3>Santa Clara— Santa Clara County </h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure M</li></ul>
+          <p><strong> Current situation: </strong> The city prohibits all commercial cannabis activity.</p>
+          <p><strong>What could change: </strong> If approved, Measure M will establish a tax framework for the city and the council will move forward with establishing cannabis business regulations. If Measure M fails then the city will continue to prohibit cannabis activity.
+
+            <small id = "citation">
+            <a href = 'http://santaclaraca.gov/home/showdocument?id=59982 ' target = "_blank"> Read Santa Clara full text.</a></p>
+
+
+    </section>
+    <section id='morgan'>
+        <h3>Morgan Hill— Santa Clara County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure I- Cannabis Tax</li></ul>
+          <p><strong> Current situation: </strong> The city prohibits all commercial cannabis activity.</p>
+          <p><strong>What could change: </strong> If passed Measure I will establish a tax structure for cannabis business and the city will begin to explore cannabis business regulations. If Measure I fails cannabis business activity will remain prohibited.
+
+            <small id = "citation">
+            <a href = 'https://ballotpedia.org/Morgan_Hill,_California,_Measure_I,_Marijuana_Business_Tax_(November_2018) ' target = "_blank"> Read Morgan Hill full text.</a></p>
+
+
+    </section>
+    <section id='juan'>
+        <h3>San Juan Bautista—San Benito County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure I- San Juan Bautista Cannabis Ordinance</li></ul>
+          <p><strong> Current situation: </strong> The city prohibits all cannabis activity.</p>
+          <p><strong>What could change: </strong> If passed, Measure I will permit adult-use and medical cannabis cultivation, manufacturing, testing, distributing, and micro businesses.
+
+            <small id = "citation">
+            <a href = 'http://sbcvote.us/pdf/forms/registrar/2018NovemberElection/PR_SBEN-Measure_I_Approved.pdf' target = "_blank"> Read San Juan Bautista full text.</a></p>
+
+
+    </section>
+    <section id='marina'>
+        <h3>Marina—Monterrey County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure V, Cannabis Business Tax</li></ul>
+          <p><strong> Current situation: </strong> The city prohibits all commercial cannabis activity.</p>
+          <p><strong>What could change: </strong>  If Measure V passes, the city will issue 3 medical cannabis dispensary permits and 3 adult use cannabis dispensary permits. Both medical and adult-use dispensaries may offer delivery. Cultivation, testing, manufacturing, and distribution will also be permitted. Dispensaries are subject to an initial tax of 2.5% of gross receipts that may rise to no more than 5% after January 1, 2022. Non-retail cannabis businesses are subject to an initial tax of 2% on gross receipts that may rise to no more than 5% after January 1, 2022.
+
+            <small id = "citation">
+            <a href = 'http://www.montereycountyelections.us/a_measures_NOVEMBER_2018_EN_MV.html ' target = "_blank"> Read Marina full text.</a></p>
+    </section>
+
+
+    <section id='slo'>
+        <h3>San Luis Obispo— San Luis Obispo County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure F-18</li></ul>
+          <p><strong> Current situation: </strong>The city prohibits all commercial cannabis activity. However, in May of 2018 the City Council passed an ordinance establishing commercial cannabis regulations. These regulations will only take effect if the voters pass a cannabis revenue measure.</p>
+          <p><strong>What could change: </strong> If Measure F-18 is passed, the city will begin issuing permits for cannabis cultivation, manufacturing, distribution, testing, retail, delivery, and micro businesses.
+
+            <small id = "citation">
+            <a href = 'https://www.slocity.org/home/showdocument?id=21690 ' target = "_blank"> Read San Luis Obispo full text.</a></p>
+    </section>
+
+    <section id='bakersfield'>
+        <h3>Bakersfield— Kern County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure O</li></ul>
+          <p><strong> Current situation: </strong>The city prohibits all commercial cannabis activity</p>
+          <p><strong>What could change: </strong>If Measure O passes then the city will allow medical marijuana storefront dispensaries, cultivation sites, manufacturers, distributors, and delivery operators. The city will impose a 7.5% excise tax on cannabis businesses.
+
+            <small id = "citation">
+            <a href = 'https://bakersfieldcity.us/civicax/filebank/blobdload.aspx?BlobID=32439' target = "_blank"> Read Bakersfield full text.</a></p>
+    </section>
+
+
+    <section id='fillmore'>
+        <h3>Fillmore— Ventura County</h3>
+        <p>This is a description paragraph. This is a description paragraph. This is a description paragraph. This is a description paragraph. This is a description paragraph.</p>
+    </section>
+    <section id='malibu'>
+        <h3> Malibu— Los Angeles County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure G</li></ul>
+          <p><strong> Current situation: </strong> Only 2 medical marijuana dispensaries are allowed to operate in the city. All other cannabis activity is prohibited.</p>
+          <p><strong>What could change: </strong>  If Measure G passes the city will begin to allow and regulate cannabis businesses. In addition the existing medical marijuana dispensaries will be allowed to begin selling and delivering recreational cannabis.
+            A new tax of 2.5% will be imposed on all cannabis sales. The tax is estimated to raise between $75,000 and $150,000 annually.
+
+            <small id = "citation">
+            <a href = 'https://www.malibucity.org/AgendaCenter/ViewFile/Item/3360?fileID=4876 ' target = "_blank"> Read Malibu full text.</a></p>
+
+
+    </section>
+    <section id='jurupa'>
+        <h3> Jurupa Valley— Riverside County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure L</li></ul>
+          <p><strong> Current situation: </strong>The city prohibits all cannabis activity.</p>
+          <p><strong>What could change: </strong>  If Measure L passes, medical and adult-use cannabis retail, delivery, cultivation, manufacturing, distribution, testing, nurseries, and micro business would be allowed. A maximum of $25 per square foot tax will
+            be imposed on retail cannabis activity and a maximum of $3 per square foot tax will be imposed on all other commercial cannabis activity. The number of retail licenses issued will be capped at 1 license per 15,000 people.
+
+          <small id = "citation">
+          <a href = 'http://www.jurupavalley.org/Portals/0/Documents/Public%20Information%20and%20Notices/Public%20Notices/Election%20Notices%20-%20City%20Council/November%202018%20Election/Text%20of%20Proposed%20Measure%20L.pdf ' target = "_blank"> Read Jurupa Valley full text.</a></p>
+
+
+    </section>
+    <section id='banning'>
+        <h3> Banning— Riverside County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure O</li> <li>Measure N</li></ul>
+          <p><strong> Current situation: </strong>The city prohibits all commercial cannabis activity and heavily regulates personal cultivation.</p>
+          <p><strong>What could change: </strong> here are two measures on the ballot involving cannabis. If Measure N passes then cultivation,
+            manufacturing, and testing will be permitted. If Measure O passes then cannabis retail dispensaries will be allowed
+            with a 10% tax on their gross receipts.
+
+          <small id = "citation">
+          <a href = 'http://www.ci.banning.ca.us/DocumentCenter/View/5683/H---City-Resolution-2018-82-Placing-Measures-N-and-O-on-Ballot' target = "_blank"> Read Banning full text.</a></p>
+
+
+    </section>
+    <section id='hemmet'>
+        <h3> Hemmet— Riverside County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure Y</li> <li>Measure Z</li></ul>
+          <p><strong> Current situation: </strong>The city prohibits all commercial cannabis activity.</p>
+          <p><strong>What could change: </strong> There are two measures on the ballot regarding cannabis that have differing impacts. Measure Y was placed on the ballot by
+            voters and would allow for medical and adult-use cannabis cultivation, distribution, manufacturing, and testing in industrial zones of the city at a tax rate of
+            up to $10 per square foot. Measure Z was placed on the ballot by the City Council and would continue to prohibit all cannabis business activity. Measure Z would
+            also establish a tax system to be imposed on illegal operators that would apply to the legal market if it should ever be established in the city.
+
+
+          <small id = "citation">
+          <a href = ' http://ca-hemet.civicplus.com/DocumentCenter/View/5090  ' target = "_blank"> Read Hemmet Measure Y full text.</a> <br>
+          <a href = 'http://www.cityofhemet.org/DocumentCenter/View/5091' target = "_blank"> Read Hemmet Measure Z full text.</a>
+        </p>
+
+
+    </section>
+    <section id='vista'>
+        <h3> Vista— San Diego County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure Z</li> <li>Measure BB</li></ul>
+          <p><strong> Current situation: </strong>The city prohibits all commercial cannabis activity</p>
+          <p><strong>What could change: </strong> If measure Z is passed up to 11 storefront retailers will be allowed with a tax on 7% of their gross receipts. If measure
+            BB is passed three delivery only operators and two testing labs will be allowed.
+
+          <small id = "citation">
+          <a href = 'http://www.cityofvista.com/city-government/election-information ' target = "_blank"> Read Vista full text.</a></p>
+
+
+    </section>
+    <section id='joaquin'>
+        <h3> San Joaquin County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure B</li> </ul>
+          <p><strong> Current situation: </strong>The county currently prohibits commercial cannabis activity in unincorporated areas. However, the county recently adopted
+            a regulatory framework that will be enacted if Measure B is passed.</p>
+          <p><strong>What could change: </strong>If passed, Measure B will enact a tax on commercial cannabis activity and authorize the regulatory framework previously
+            adopted by the city allowing cultivation, distribution, manufacturing, retail, and testing in unincorporated areas.
+
+          <small id = "citation">
+          <a href = 'https://www.sjgov.org/WorkArea/DownloadAsset.aspx?id=29214 ' target = "_blank"> Read San Joquin County full text.</a></p>
+
+
+    </section>
+    <section id='dorado'>
+        <h3> El Dorado County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure N</li> <li>Measure P</li> <li>Measure Q</li><li>Measure R</li><li>Measure S</li></ul>
+          <p><strong> Current situation: </strong>The county currently prohibits all commercial cannabis activity in unincorporated areas.</p>
+          <p><strong>What could change: </strong>Five different measures are on the ballot that will each enable different aspects of medical and adult-use cannabis markets in
+            unincorporate areas. Measure N establishes a tax and permitting structure for unincorporated areas. Measure P allows for cultivation of medical cannabis.
+            Measure Q allows for adult-use cannabis cultivation. Measure R allows for retail sale, distribution, and indoor cultivation of medical cannabis. Measure S allows
+            for the retail sale, distribution, and indoor cultivation of adult-use cannabis.
+
+          <small id = "citation">
+          <a href = 'https://www.edcgov.us/Government/Elections/Documents/County%20Wide%20Measures.pdf' target = "_blank"> Read El Dorado County full text.</a></p>
+
+
+    </section>
+    <section id='kern'>
+        <h3>Kern County</h3>
+        <p><strong>Measures:</strong> <ul> <li>Measure J</li> <li>Measure K</li></ul>
+          <p><strong> Current situation: </strong>The county currently prohibits commercial cannabis activity in unincorporated areas.</p>
+          <p><strong>What could change: </strong>If Measure J is passed then the county prohibition remains in place and a tax structure is adopted for adult-use cannabis.
+            If measure K is passed then medical and adult-use retail, testing, cultivation, processing, packaging, and distribution will be allowed in unincorporated areas.</p>
+
+          <small id="citation">
+            <a href='https://www.kernvote.com/ElectionInformation/CurrentElectionInformation/ElectionFile?ElectionID=97&ResourceName=MeasuresEng.pdf&ResourceType=pdf' target = "_blank"> Read Kern County full text.</a>
+        </small>
+    </section>
+
+
+
+
+
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicnNvcmlhIiwiYSI6ImNqNHN3MWZ3eTAxenQyd3I1MGZ5NHVvMHYifQ.dCIIk_eEK6zvSXU6ua49Dw';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/rsoria/cjnavgbe201o82snsgzxhvbmh',
+    center: [-119.503254, 36.541640],
+    zoom:6,
+    bearing: 0,
+    pitch: 10
+});
+
+//load data from geoJSON
+
+ // pop ups
+
+ map.on('load', function () {
+     // Add a layer showing the places.
+     map.addLayer({
+         "id": "places",
+         "type": "symbol",
+         "source": {
+             "type": "geojson",
+             "data": {
+                 "type": "FeatureCollection",
+                 "features": [{
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Half Moon Bay </strong><p>Currently allows limited cultivation. <a href = \"https://www.smcacre.org/sites/main/files/file-attachments/hmb_resono2018-84.pdf\" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-122.429237, 37.463638]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Santa Clara</strong><p> The city prohibits all commercial cannabis activity.<p><a href = \"http://santaclaraca.gov/home/showdocument?id=59982\" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-121.953079, 37.352390]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Morgan Hill</strong></p> The city prohibits all commercial cannabis activity.<p><a href = \"https://ballotpedia.org/Morgan_Hill,_California,_Measure_I,_Marijuana_Business_Tax_(November_2018)\" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-121.653197, 37.125397]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of San Juan Bautista</strong></p> The city prohibits all cannabis activity.<p><a href = \"http://sbcvote.us/pdf/forms/registrar/2018NovemberElection/PR_SBEN-Measure_I_Approved.pdf\" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-121.537989, 36.845517]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Marina</strong><p>The city prohibits all commercial cannabis activity.<p><a href = \"http://www.montereycountyelections.us/a_measures_NOVEMBER_2018_EN_MV.html \" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-121.801013, 36.685932]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of San Luis Obispo</strong><p>The city prohibits all commercial cannabis activity; however, an ordinance<br> has been passed establishing cannabis regulations which will take effect<br> if voters pass a cannabis revenue measure.<p><a href = \"https://www.slocity.org/home/showdocument?id=21690\" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-120.659615, 35.282753]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Bakersfield | Kern County</strong><p><p>The city prohibits all commercial cannabis activity.<br> <a href = \"https://bakersfieldcity.us/civicax/filebank/blobdload.aspx?BlobID=32439 \" target = \"_blank\"> Read More on Bakersfield's Measure O.</a> <br><a href = \"https://bakersfieldcity.us/civicax/filebank/blobdload.aspx?BlobID=32439 \" target = \"_blank\"> Read Kern County Measure J and Measure K.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-119.018715, 35.373291]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Malibu</strong><p>Only 2 medical marijuana dispensaries are allowed to operate in the city. All other cannabis activity is prohibited.<p><a href = \"https://www.malibucity.org/AgendaCenter/ViewFile/Item/3360?fileID=4876 \" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-118.691528, 34.035801]
+                     }
+                 }, {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Jurupa Valley</strong><p>The city prohibits all cannabis activity.<p><a href = \"http://www.jurupavalley.org/Portals/0/Documents/Public%20Information%20and%20Notices/Public%20Notices/Election%20Notices%20-%20City%20Council/November%202018%20Election/Text%20of%20Proposed%20Measure%20L.pdf \" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-117.451575, 33.979847]
+                     }
+                 },
+                 {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Banning</strong><p>The city prohibits all commercial cannabis activity and heavily regulates personal cultivation.<p><a href = \"http://www.ci.banning.ca.us/DocumentCenter/View/5683/H---City-Resolution-2018-82-Placing-Measures-N-and-O-on-Ballot\" target = \"_blank\"> Read More.</a></p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-116.876411, 33.925571]
+                     }
+                 },
+                 {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Hemmet</strong><p>The city prohibits all commercial cannabis activity.<p><a href = \"http://ca-hemet.civicplus.com/DocumentCenter/View/5090\" target = \"_blank\"> Read More on Measure Y.</p> <br> <a href = \"http://www.cityofhemet.org/DocumentCenter/View/5091\" target = \"_blank\"> Read more on Measure Z.</p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-116.971917, 33.747238]
+                     }
+                 },
+                 {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Vista</strong><p> The city prohibits all commercial cannabis activity.</p><a href = \"http://www.cityofvista.com/city-government/election-information\" target = \"_blank\"> Read More.</a>  </p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-117.242538, 33.200035]
+                     }
+                 },
+                 {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>County of El Dorado</strong><p>The county currently prohibits all commercial cannabis activity in unincorporated areas.</p><a href = \"https://www.edcgov.us/Government/Elections/Documents/County%20Wide%20Measures.pdf\" target = \"_blank\"> Read More.</a>  </p>",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-120.684376, 38.736867]
+                     }
+                 },
+                 {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>County of San Joaquin</strong><p> The county prohibits commercial cannabis activity in unincorporated areas; however, it recently adopted a regulatory framework that will be enacted if Measure B is passed</p><a href = \"https://www.sjgov.org/WorkArea/DownloadAsset.aspx?id=29214\" target = \"_blank\"> Read More.</a>  </p>",
+                         "text-decoration": "underline",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-121.277372, 37.937290]
+                     }
+                 }]
+             }
+         },
+         "layout": {
+             "icon-image": "{icon}-15",
+             "icon-size": 0.5,
+             "icon-allow-overlap": true
+         }
+     });
+
+
+
+
+map.on('click', 'places', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'places', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'places', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+//chapters start here
+
+var chapters = {
+  'splash-page': {
+      bearing: 0,
+      center: [-119.730282, 36.576938],
+      zoom: 6.5,
+      pitch: 20
+  },
+    'half': {
+        bearing: 0,
+        center: [-122.434736, 37.463690],
+        zoom: 11,
+        pitch: 20
+    },
+    'clara': {
+        duration: 6000,
+        center:[-121.953079, 37.352390],
+        bearing: 0,
+        zoom: 11,
+        pitch: 20
+    },
+    'morgan': {
+        bearing: 0,
+        center: [-121.644244, 37.128814],
+        zoom: 11,
+        speed: 0.6,
+        pitch: 20
+    },
+    'juan': {
+        bearing: 0,
+        center: [-121.537989, 36.845517],
+        zoom: 13,
+        speed: 0.6
+    },
+    'marina': {
+        bearing: 0,
+        center: [-121.795801, 36.678734],
+        zoom: 12,
+        pitch: 20,
+        speed: 0.5
+    },
+    'slo': {
+        bearing: 0,
+        center: [-120.659615, 35.282753],
+        zoom:11
+    },
+    'bakersfield': {
+        bearing: 0,
+        center: [-119.018715, 35.373291],
+        zoom:11
+    },
+    'fillmore': {
+        bearing: 0,
+        center:  [-118.914766, 34.401643],
+        zoom: 11,
+        pitch: 20
+    },
+    'malibu': {
+        bearing: 0,
+        center: [-118.691528, 34.035801],
+        zoom: 10,
+        pitch: 20
+    },
+    'jurupa': {
+        bearing: 0,
+        center:  [-117.451575, 33.979847],
+        zoom: 11,
+        pitch: 20
+    },
+    'banning': {
+        bearing: 0,
+        center:  [-116.875289, 33.925569],
+        zoom: 11,
+        pitch: 20
+    },
+    'hemmet': {
+        bearing: 0,
+        center:  [-116.970290, 33.746725],
+        zoom: 11,
+        pitch: 20
+    },
+    'vista': {
+        bearing: 0,
+        center:  [-117.242538, 33.200035],
+        zoom: 11,
+        pitch: 20
+    },
+    'joaquin': {
+        bearing: 0,
+        center:  [-121.277372, 37.937290],
+        zoom: 9,
+        pitch: 20
+    },
+    'dorado': {
+        bearing: 0,
+        center:  [-120.684376, 38.736867],
+        zoom: 9,
+        pitch: 20
+    },
+    'kern': {
+        bearing: 0,
+        center:  [-119.044301, 35.331722],
+        zoom: 8,
+        pitch: 20
+    }
+};
+
+// On every scroll event, check which element is on screen
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
+    }
+};
+
+var activeChapterName = 'half';
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+
+    map.flyTo(chapters[chapterName]);
+
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+
+    activeChapterName = chapterName;
+}
+
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    //console.log('##'+bounds.top < window.innerHeight && bounds.bottom > 0);
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+
+//Get user location
+map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
+}));
+</script>
+
+</body>
+</html>

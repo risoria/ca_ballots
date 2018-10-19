@@ -62,7 +62,7 @@ section:last-child {
 <div id='features'>
   <section id='splash-page' class='active'>
       <h3>Cannabis on the California Ballot</h3>
-      <p>This year, there are sixteen significant cannabis-related measures on the ballots for the state of California. Thirteen cities and three counties will vote on measures that will determine the cannabis landscape in the state. This interactive map features the measures that would have a significant positive impact on the path toward better regulation and grant Californians better access to safe and legal cannabis. Scroll through each jurisdiction’s information slide to learn if you live in one of them.</p>
+      <p>This year, there are sixteen significant cannabis-related measures on the ballots for the state of California. Thirteen cities and three counties will vote on measures that will begin to address the significant cannabis availability deserts that exist throughout California. This interactive map features the measures that would have a significant positive impact on the path toward better regulation and grant Californians better access to safe and legal cannabis. Scroll through each jurisdiction’s information slide to learn if you live in one of them.</p>
   </section>
     <section id='half' >
         <h3>Half Moon Bay— San Mateo County</h3>
@@ -140,7 +140,13 @@ section:last-child {
 
     <section id='fillmore'>
         <h3>Fillmore— Ventura County</h3>
-        <p>This is a description paragraph. This is a description paragraph. This is a description paragraph. This is a description paragraph. This is a description paragraph.</p>
+        <p><strong>Measures:</strong> <ul> <li>Measure T</li></ul>
+          <p><strong> Current situation: </strong> The city prohibits all commercial cannabis activity.</p>
+          <p><strong>What could change: </strong>   If Measure T is passed the city will allow limited medical cannabis cultivation. All other commercial cannabis activity will continue to be prohibited.
+
+            <small id = "citation">
+            <a href = 'https://legistarweb-production.s3.amazonaws.com/uploads/attachment/pdf/211534/Reso_to_revising_18_3655_re_ballot_measure_final.pdf  ' target = "_blank"> Read Fillmore full text.</a></p>
+
     </section>
     <section id='malibu'>
         <h3> Malibu— Los Angeles County</h3>
@@ -179,8 +185,8 @@ section:last-child {
 
 
     </section>
-    <section id='hemmet'>
-        <h3> Hemmet— Riverside County</h3>
+    <section id='hemet'>
+        <h3> Hemet— Riverside County</h3>
         <p><strong>Measures:</strong> <ul> <li>Measure Y</li> <li>Measure Z</li></ul>
           <p><strong> Current situation: </strong>The city prohibits all commercial cannabis activity.</p>
           <p><strong>What could change: </strong> There are two measures on the ballot regarding cannabis that have differing impacts. Measure Y was placed on the ballot by
@@ -190,8 +196,8 @@ section:last-child {
 
 
           <small id = "citation">
-          <a href = ' http://ca-hemet.civicplus.com/DocumentCenter/View/5090  ' target = "_blank"> Read Hemmet Measure Y full text.</a> <br>
-          <a href = 'http://www.cityofhemet.org/DocumentCenter/View/5091' target = "_blank"> Read Hemmet Measure Z full text.</a>
+          <a href = ' http://ca-hemet.civicplus.com/DocumentCenter/View/5090  ' target = "_blank"> Read Hemet Measure Y full text.</a> <br>
+          <a href = 'http://www.cityofhemet.org/DocumentCenter/View/5091' target = "_blank"> Read Hemet Measure Z full text.</a>
         </p>
 
 
@@ -382,7 +388,7 @@ var map = new mapboxgl.Map({
                  {
                      "type": "Feature",
                      "properties": {
-                         "description": "<strong>City of Hemmet</strong><p>The city prohibits all commercial cannabis activity.<p><a href = \"http://ca-hemet.civicplus.com/DocumentCenter/View/5090\" target = \"_blank\"> Read More on Measure Y.</p> <br> <a href = \"http://www.cityofhemet.org/DocumentCenter/View/5091\" target = \"_blank\"> Read more on Measure Z.</p>",
+                         "description": "<strong>City of Hemet</strong><p>The city prohibits all commercial cannabis activity.<p><a href = \"http://ca-hemet.civicplus.com/DocumentCenter/View/5090\" target = \"_blank\"> Read More on Measure Y.</p> <br> <a href = \"http://www.cityofhemet.org/DocumentCenter/View/5091\" target = \"_blank\"> Read more on Measure Z.</p>",
                          "icon": "square"
                      },
                      "geometry": {
@@ -422,6 +428,18 @@ var map = new mapboxgl.Map({
                      "geometry": {
                          "type": "Point",
                          "coordinates": [-121.277372, 37.937290]
+                     }
+                 },
+                 {
+                     "type": "Feature",
+                     "properties": {
+                         "description": "<strong>City of Fillmore</strong><p> The city prohibits all commercial cannabis activity. </p><a href = \"https://legistarweb-production.s3.amazonaws.com/uploads/attachment/pdf/211534/Reso_to_revising_18_3655_re_ballot_measure_final.pdf \" target = \"_blank\"> Read More.</a>  </p>",
+                         "text-decoration": "underline",
+                         "icon": "square"
+                     },
+                     "geometry": {
+                         "type": "Point",
+                         "coordinates": [-118.915557, 34.396741]
                      }
                  }]
              }
@@ -552,7 +570,7 @@ var chapters = {
         zoom: 11,
         pitch: 20
     },
-    'hemmet': {
+    'hemet': {
         bearing: 0,
         center:  [-116.970290, 33.746725],
         zoom: 11,

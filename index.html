@@ -3,8 +3,8 @@
 <head>
     <meta charset='utf-8' />
     <title>Cannabis on the California Ballot</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />-->
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -36,7 +36,7 @@ section {
     font-size: 13px;
 }
 section.active {
-    opacity: 0.50;
+    opacity: 0.90;
     padding: 25px 50px;
     color: #000000;
     text-shadow: black;
@@ -53,7 +53,7 @@ section:last-child {
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
 </style>
-</style>
+
 
 
 
@@ -269,7 +269,7 @@ var map = new mapboxgl.Map({
     zoom:6,
     bearing: 0,
     pitch: 10,
-    interactive: true
+    
 });
 
 //load data from geoJSON
@@ -508,92 +508,92 @@ var chapters = {
     'half': {
         bearing: 0,
         center: [-122.434736, 37.463690],
-        zoom: 11,
+        zoom: 10,
         pitch: 20
     },
     'clara': {
         duration: 6000,
         center:[-121.953079, 37.352390],
         bearing: 0,
-        zoom: 11,
+        zoom: 10,
         pitch: 20
     },
     'morgan': {
         bearing: 0,
         center: [-121.644244, 37.128814],
-        zoom: 11,
+        zoom: 10,
         speed: 0.6,
         pitch: 20
     },
     'juan': {
         bearing: 0,
         center: [-121.537989, 36.845517],
-        zoom: 13,
+        zoom: 11,
         speed: 0.6
     },
     'marina': {
         bearing: 0,
         center: [-121.795801, 36.678734],
-        zoom: 12,
+        zoom: 8.5,
         pitch: 20,
         speed: 0.5
     },
     'slo': {
         bearing: 0,
         center: [-120.659615, 35.282753],
-        zoom:11
+        zoom:9
     },
     'bakersfield': {
         bearing: 0,
         center: [-119.018715, 35.373291],
-        zoom:11
+        zoom:9.2
     },
     'fillmore': {
         bearing: 0,
         center:  [-118.914766, 34.401643],
-        zoom: 11,
+        zoom: 10,
         pitch: 20
     },
     'malibu': {
         bearing: 0,
         center: [-118.691528, 34.035801],
-        zoom: 10,
+        zoom: 9,
         pitch: 20
     },
     'jurupa': {
         bearing: 0,
         center:  [-117.451575, 33.979847],
-        zoom: 11,
+        zoom: 9,
         pitch: 20
     },
     'banning': {
         bearing: 0,
         center:  [-116.875289, 33.925569],
-        zoom: 11,
+        zoom: 9,
         pitch: 20
     },
     'hemet': {
         bearing: 0,
         center:  [-116.970290, 33.746725],
-        zoom: 11,
+        zoom: 9,
         pitch: 20
     },
     'vista': {
         bearing: 0,
         center:  [-117.242538, 33.200035],
-        zoom: 11,
+        zoom: 9,
         pitch: 20
     },
     'joaquin': {
         bearing: 0,
         center:  [-121.277372, 37.937290],
-        zoom: 9,
+        zoom: 7,
         pitch: 20
     },
     'dorado': {
         bearing: 0,
         center:  [-120.684376, 38.736867],
-        zoom: 9,
+        zoom: 8,
         pitch: 20
     },
     'kern': {

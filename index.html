@@ -3,13 +3,12 @@
 <head>
     <meta charset='utf-8' />
     <title>Cannabis on the California Ballot</title>
-    <!--<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />-->
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-        body { margin:10; padding:10; }
-        #map { position:sticky; top:0; bottom:0; width:100%; }
+        body { margin:10; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 </head>
 <body>
@@ -18,18 +17,18 @@
 <style>
 #map {
     position: fixed;
-    width:100%;
+    width:60%;
 }
 #features {
-    width: 100%;
-    margin-bottom: 60%;
+    width: 40%;
+    margin-left: 60%;
     font-family: sans-serif;
-    webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
     background-color: #ffffff;
 
 }
 section {
-    opacity: 0.05;
+    opacity: 0.25;
     padding:  25px 50px;
     line-height: 25px;
     border-bottom: 1px solid #ddd;
@@ -269,7 +268,7 @@ var map = new mapboxgl.Map({
     zoom:6,
     bearing: 0,
     pitch: 10,
-    
+
 });
 
 //load data from geoJSON
